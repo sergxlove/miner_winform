@@ -147,6 +147,8 @@ namespace minerwinform {
     private: int poz_y = 99;
     private: int index = 0;
     private: Label^ label_color;
+    private: bool new_game = false;
+    private: int size = 0;
     protected:
     protected:
     private: System::Windows::Forms::Label^ label201;
@@ -1837,24 +1839,27 @@ namespace minerwinform {
 #pragma endregion
     private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
         Random^ random = gcnew Random();
-        int size = 10;
-        arr_bomb = gcnew array<int, 1>(size);
-        arr_poz_bomb = gcnew array<bool, 2>(size, size);
-        arr_number = gcnew array<int, 2>(size, size);
-        arr_poz_bomb_speed = gcnew array<bool, 2>(size + 2, size + 2);
-        arr_label = gcnew array<int, 2>(size, size)
+        if (new_game == false)
         {
-            { 101,120,130,140,150,160,170,180,190,200 },
-            { 102,119,129,139,149,159,169,179,189,199 },
-            { 103,118,128,138,148,158,168,178,188,198 },
-            { 104,117,127,137,147,157,167,177,187,197 },
-            { 105,116,126,136,146,156,166,176,186,196 },
-            { 106,115,125,135,145,155,165,175,185,195 },
-            { 107,114,124,134,144,154,164,174,184,194 },
-            { 108,113,123,133,143,153,163,173,183,193 },
-            { 109,112,122,132,142,152,162,172,182,192 },
-            { 110,111,121,131,141,151,161,171,181,191 },
-        };
+            size = 10;
+            arr_bomb = gcnew array<int, 1>(size);
+            arr_poz_bomb = gcnew array<bool, 2>(size, size);
+            arr_number = gcnew array<int, 2>(size, size);
+            arr_poz_bomb_speed = gcnew array<bool, 2>(size + 2, size + 2);
+            arr_label = gcnew array<int, 2>(size, size)
+            {
+                { 101,120,130,140,150,160,170,180,190,200 },
+                { 102,119,129,139,149,159,169,179,189,199 },
+                { 103,118,128,138,148,158,168,178,188,198 },
+                { 104,117,127,137,147,157,167,177,187,197 },
+                { 105,116,126,136,146,156,166,176,186,196 },
+                { 106,115,125,135,145,155,165,175,185,195 },
+                { 107,114,124,134,144,154,164,174,184,194 },
+                { 108,113,123,133,143,153,163,173,183,193 },
+                { 109,112,122,132,142,152,162,172,182,192 },
+                { 110,111,121,131,141,151,161,171,181,191 },
+            };
+        }
         for (int i = 0;i < size;i++)
         {
             for (int j = 0;j < size;j++)
@@ -1954,6 +1959,17 @@ namespace minerwinform {
                 }
             }
         }
+        for (int i = 0;i < 10;i++)
+        {
+            for (int j = 0;j < 10;j++)
+            {
+                index = arr_label[i, j];
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + index, true)[0]);
+                label_color->BackColor = Color::FromArgb(0, 127, 182);
+                label_color->Text = "";
+            }
+        }
+        new_game = true;
     }
     private: System::Void Click_field(System::Object^ sender, System::EventArgs^ e)
     {
@@ -1967,7 +1983,10 @@ namespace minerwinform {
             {
                 index = arr_label[i, j];
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + index, true)[0]);
-                label_color->BackColor = Color::FromArgb(0, 127, 182);
+                if (label_color->BackColor != Color::White)
+                {
+                    label_color->BackColor = Color::FromArgb(0, 127, 182);
+                }
             }
         }
         for (int i = 0;i < 10;i++)
@@ -1989,16 +2008,25 @@ namespace minerwinform {
         label_field->BackColor = Color::FromArgb(73, 153, 228);
     }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-    label_field->BackColor = Color::White;
-    if (arr_number[poz_x, poz_y] == 9)
+    if (label_field->Text == "f")
     {
-        label_field->Text = "*";
-        label_field->BackColor = Color::Red;
+        MessageBox::Show(this, "эта ячейка отмечена флажком", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
     }
     else
     {
-        label_field->Text = Convert::ToString(arr_number[poz_x, poz_y]);
-        label_field->ForeColor = Color::FromArgb(0, 170, 246);
+        label_field->BackColor = Color::White;
+        if (arr_number[poz_x, poz_y] == 9)
+        {
+            label_field->Text = "*";
+            label_field->BackColor = Color::Red;
+            MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            MyForm_Load(sender, e);
+        }
+        else
+        {
+            label_field->Text = Convert::ToString(arr_number[poz_x, poz_y]);
+            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+        }
     }
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
