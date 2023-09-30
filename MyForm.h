@@ -149,6 +149,7 @@ namespace minerwinform {
     private: Label^ label_color;
     private: bool new_game = false;
     private: int size = 0;
+    private: int count_f = 0;
     protected:
     protected:
     private: System::Windows::Forms::Label^ label201;
@@ -286,6 +287,7 @@ namespace minerwinform {
             this->label101->TabIndex = 0;
             this->label101->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label101->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label101->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label102
             // 
@@ -300,6 +302,7 @@ namespace minerwinform {
             this->label102->TabIndex = 1;
             this->label102->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label102->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label102->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label103
             // 
@@ -314,6 +317,7 @@ namespace minerwinform {
             this->label103->TabIndex = 2;
             this->label103->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label103->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label103->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label104
             // 
@@ -328,6 +332,7 @@ namespace minerwinform {
             this->label104->TabIndex = 3;
             this->label104->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label104->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label104->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label105
             // 
@@ -342,6 +347,7 @@ namespace minerwinform {
             this->label105->TabIndex = 4;
             this->label105->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label105->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label105->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label106
             // 
@@ -356,6 +362,7 @@ namespace minerwinform {
             this->label106->TabIndex = 5;
             this->label106->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label106->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label106->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label107
             // 
@@ -370,6 +377,7 @@ namespace minerwinform {
             this->label107->TabIndex = 6;
             this->label107->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label107->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label107->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label108
             // 
@@ -384,6 +392,7 @@ namespace minerwinform {
             this->label108->TabIndex = 7;
             this->label108->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label108->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label108->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label109
             // 
@@ -398,6 +407,7 @@ namespace minerwinform {
             this->label109->TabIndex = 8;
             this->label109->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label109->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label109->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label110
             // 
@@ -412,6 +422,7 @@ namespace minerwinform {
             this->label110->TabIndex = 9;
             this->label110->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label110->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label110->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label111
             // 
@@ -426,6 +437,7 @@ namespace minerwinform {
             this->label111->TabIndex = 19;
             this->label111->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label111->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label111->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label112
             // 
@@ -440,6 +452,7 @@ namespace minerwinform {
             this->label112->TabIndex = 18;
             this->label112->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label112->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label112->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label113
             // 
@@ -454,6 +467,7 @@ namespace minerwinform {
             this->label113->TabIndex = 17;
             this->label113->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label113->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label113->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label114
             // 
@@ -468,6 +482,7 @@ namespace minerwinform {
             this->label114->TabIndex = 16;
             this->label114->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label114->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label114->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label115
             // 
@@ -482,6 +497,7 @@ namespace minerwinform {
             this->label115->TabIndex = 15;
             this->label115->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label115->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label115->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label116
             // 
@@ -496,6 +512,7 @@ namespace minerwinform {
             this->label116->TabIndex = 14;
             this->label116->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label116->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label116->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label117
             // 
@@ -510,6 +527,7 @@ namespace minerwinform {
             this->label117->TabIndex = 13;
             this->label117->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label117->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label117->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label118
             // 
@@ -524,6 +542,7 @@ namespace minerwinform {
             this->label118->TabIndex = 12;
             this->label118->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label118->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label118->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label119
             // 
@@ -538,6 +557,7 @@ namespace minerwinform {
             this->label119->TabIndex = 11;
             this->label119->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label119->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label119->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label120
             // 
@@ -552,6 +572,7 @@ namespace minerwinform {
             this->label120->TabIndex = 10;
             this->label120->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label120->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label120->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label121
             // 
@@ -566,6 +587,7 @@ namespace minerwinform {
             this->label121->TabIndex = 29;
             this->label121->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label121->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label121->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label122
             // 
@@ -580,6 +602,7 @@ namespace minerwinform {
             this->label122->TabIndex = 28;
             this->label122->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label122->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label122->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label123
             // 
@@ -594,6 +617,7 @@ namespace minerwinform {
             this->label123->TabIndex = 27;
             this->label123->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label123->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label123->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label124
             // 
@@ -608,6 +632,7 @@ namespace minerwinform {
             this->label124->TabIndex = 26;
             this->label124->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label124->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label124->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label125
             // 
@@ -622,6 +647,7 @@ namespace minerwinform {
             this->label125->TabIndex = 25;
             this->label125->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label125->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label125->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label126
             // 
@@ -636,6 +662,7 @@ namespace minerwinform {
             this->label126->TabIndex = 24;
             this->label126->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label126->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label126->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label127
             // 
@@ -650,6 +677,7 @@ namespace minerwinform {
             this->label127->TabIndex = 23;
             this->label127->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label127->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label127->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label128
             // 
@@ -664,6 +692,7 @@ namespace minerwinform {
             this->label128->TabIndex = 22;
             this->label128->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label128->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label128->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label129
             // 
@@ -678,6 +707,7 @@ namespace minerwinform {
             this->label129->TabIndex = 21;
             this->label129->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label129->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label129->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label130
             // 
@@ -692,6 +722,7 @@ namespace minerwinform {
             this->label130->TabIndex = 20;
             this->label130->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label130->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label130->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label131
             // 
@@ -706,6 +737,7 @@ namespace minerwinform {
             this->label131->TabIndex = 39;
             this->label131->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label131->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label131->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label132
             // 
@@ -720,6 +752,7 @@ namespace minerwinform {
             this->label132->TabIndex = 38;
             this->label132->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label132->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label132->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label133
             // 
@@ -734,6 +767,7 @@ namespace minerwinform {
             this->label133->TabIndex = 37;
             this->label133->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label133->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label133->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label134
             // 
@@ -748,6 +782,7 @@ namespace minerwinform {
             this->label134->TabIndex = 36;
             this->label134->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label134->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label134->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label135
             // 
@@ -762,6 +797,7 @@ namespace minerwinform {
             this->label135->TabIndex = 35;
             this->label135->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label135->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label135->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label136
             // 
@@ -776,6 +812,7 @@ namespace minerwinform {
             this->label136->TabIndex = 34;
             this->label136->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label136->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label136->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label137
             // 
@@ -790,6 +827,7 @@ namespace minerwinform {
             this->label137->TabIndex = 33;
             this->label137->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label137->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label137->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label138
             // 
@@ -804,6 +842,7 @@ namespace minerwinform {
             this->label138->TabIndex = 32;
             this->label138->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label138->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label138->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label139
             // 
@@ -818,6 +857,7 @@ namespace minerwinform {
             this->label139->TabIndex = 31;
             this->label139->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label139->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label139->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label140
             // 
@@ -832,6 +872,7 @@ namespace minerwinform {
             this->label140->TabIndex = 30;
             this->label140->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label140->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label140->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label141
             // 
@@ -846,6 +887,7 @@ namespace minerwinform {
             this->label141->TabIndex = 49;
             this->label141->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label141->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label141->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label142
             // 
@@ -860,6 +902,7 @@ namespace minerwinform {
             this->label142->TabIndex = 48;
             this->label142->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label142->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label142->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label143
             // 
@@ -874,6 +917,7 @@ namespace minerwinform {
             this->label143->TabIndex = 47;
             this->label143->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label143->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label143->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label144
             // 
@@ -888,6 +932,7 @@ namespace minerwinform {
             this->label144->TabIndex = 46;
             this->label144->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label144->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label144->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label145
             // 
@@ -902,6 +947,7 @@ namespace minerwinform {
             this->label145->TabIndex = 45;
             this->label145->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label145->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label145->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label146
             // 
@@ -916,6 +962,7 @@ namespace minerwinform {
             this->label146->TabIndex = 44;
             this->label146->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label146->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label146->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label147
             // 
@@ -930,6 +977,7 @@ namespace minerwinform {
             this->label147->TabIndex = 43;
             this->label147->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label147->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label147->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label148
             // 
@@ -944,6 +992,7 @@ namespace minerwinform {
             this->label148->TabIndex = 42;
             this->label148->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label148->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label148->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label149
             // 
@@ -958,6 +1007,7 @@ namespace minerwinform {
             this->label149->TabIndex = 41;
             this->label149->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label149->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label149->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label150
             // 
@@ -972,6 +1022,7 @@ namespace minerwinform {
             this->label150->TabIndex = 40;
             this->label150->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label150->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label150->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label151
             // 
@@ -986,6 +1037,7 @@ namespace minerwinform {
             this->label151->TabIndex = 59;
             this->label151->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label151->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label151->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label152
             // 
@@ -1000,6 +1052,7 @@ namespace minerwinform {
             this->label152->TabIndex = 58;
             this->label152->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label152->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label152->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label153
             // 
@@ -1014,6 +1067,7 @@ namespace minerwinform {
             this->label153->TabIndex = 57;
             this->label153->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label153->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label153->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label154
             // 
@@ -1028,6 +1082,7 @@ namespace minerwinform {
             this->label154->TabIndex = 56;
             this->label154->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label154->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label154->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label155
             // 
@@ -1042,6 +1097,7 @@ namespace minerwinform {
             this->label155->TabIndex = 55;
             this->label155->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label155->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label155->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label156
             // 
@@ -1056,6 +1112,7 @@ namespace minerwinform {
             this->label156->TabIndex = 54;
             this->label156->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label156->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label156->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label157
             // 
@@ -1070,6 +1127,7 @@ namespace minerwinform {
             this->label157->TabIndex = 53;
             this->label157->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label157->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label157->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label158
             // 
@@ -1084,6 +1142,7 @@ namespace minerwinform {
             this->label158->TabIndex = 52;
             this->label158->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label158->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label158->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label159
             // 
@@ -1098,6 +1157,7 @@ namespace minerwinform {
             this->label159->TabIndex = 51;
             this->label159->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label159->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label159->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label160
             // 
@@ -1112,6 +1172,7 @@ namespace minerwinform {
             this->label160->TabIndex = 50;
             this->label160->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label160->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label160->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label161
             // 
@@ -1126,6 +1187,7 @@ namespace minerwinform {
             this->label161->TabIndex = 69;
             this->label161->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label161->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label161->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label162
             // 
@@ -1140,6 +1202,7 @@ namespace minerwinform {
             this->label162->TabIndex = 68;
             this->label162->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label162->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label162->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label163
             // 
@@ -1154,6 +1217,7 @@ namespace minerwinform {
             this->label163->TabIndex = 67;
             this->label163->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label163->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label163->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label164
             // 
@@ -1168,6 +1232,7 @@ namespace minerwinform {
             this->label164->TabIndex = 66;
             this->label164->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label164->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label164->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label165
             // 
@@ -1182,6 +1247,7 @@ namespace minerwinform {
             this->label165->TabIndex = 65;
             this->label165->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label165->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label165->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label166
             // 
@@ -1196,6 +1262,7 @@ namespace minerwinform {
             this->label166->TabIndex = 64;
             this->label166->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label166->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label166->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label167
             // 
@@ -1210,6 +1277,7 @@ namespace minerwinform {
             this->label167->TabIndex = 63;
             this->label167->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label167->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label167->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label168
             // 
@@ -1224,6 +1292,7 @@ namespace minerwinform {
             this->label168->TabIndex = 62;
             this->label168->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label168->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label168->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label169
             // 
@@ -1238,6 +1307,7 @@ namespace minerwinform {
             this->label169->TabIndex = 61;
             this->label169->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label169->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label169->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label170
             // 
@@ -1252,6 +1322,7 @@ namespace minerwinform {
             this->label170->TabIndex = 60;
             this->label170->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label170->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label170->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label171
             // 
@@ -1266,6 +1337,7 @@ namespace minerwinform {
             this->label171->TabIndex = 79;
             this->label171->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label171->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label171->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label172
             // 
@@ -1280,6 +1352,7 @@ namespace minerwinform {
             this->label172->TabIndex = 78;
             this->label172->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label172->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label172->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label173
             // 
@@ -1294,6 +1367,7 @@ namespace minerwinform {
             this->label173->TabIndex = 77;
             this->label173->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label173->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label173->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label174
             // 
@@ -1308,6 +1382,7 @@ namespace minerwinform {
             this->label174->TabIndex = 76;
             this->label174->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label174->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label174->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label175
             // 
@@ -1322,6 +1397,7 @@ namespace minerwinform {
             this->label175->TabIndex = 75;
             this->label175->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label175->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label175->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label176
             // 
@@ -1336,6 +1412,7 @@ namespace minerwinform {
             this->label176->TabIndex = 74;
             this->label176->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label176->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label176->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label177
             // 
@@ -1350,6 +1427,7 @@ namespace minerwinform {
             this->label177->TabIndex = 73;
             this->label177->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label177->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label177->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label178
             // 
@@ -1364,6 +1442,7 @@ namespace minerwinform {
             this->label178->TabIndex = 72;
             this->label178->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label178->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label178->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label179
             // 
@@ -1378,6 +1457,7 @@ namespace minerwinform {
             this->label179->TabIndex = 71;
             this->label179->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label179->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label179->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label180
             // 
@@ -1392,6 +1472,7 @@ namespace minerwinform {
             this->label180->TabIndex = 70;
             this->label180->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label180->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label180->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label181
             // 
@@ -1406,6 +1487,7 @@ namespace minerwinform {
             this->label181->TabIndex = 89;
             this->label181->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label181->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label181->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label182
             // 
@@ -1420,6 +1502,7 @@ namespace minerwinform {
             this->label182->TabIndex = 88;
             this->label182->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label182->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label182->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label183
             // 
@@ -1434,6 +1517,7 @@ namespace minerwinform {
             this->label183->TabIndex = 87;
             this->label183->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label183->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label183->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label184
             // 
@@ -1448,6 +1532,7 @@ namespace minerwinform {
             this->label184->TabIndex = 86;
             this->label184->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label184->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label184->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label185
             // 
@@ -1462,6 +1547,7 @@ namespace minerwinform {
             this->label185->TabIndex = 85;
             this->label185->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label185->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label185->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label186
             // 
@@ -1476,6 +1562,7 @@ namespace minerwinform {
             this->label186->TabIndex = 84;
             this->label186->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label186->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label186->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label187
             // 
@@ -1490,6 +1577,7 @@ namespace minerwinform {
             this->label187->TabIndex = 83;
             this->label187->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label187->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label187->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label188
             // 
@@ -1504,6 +1592,7 @@ namespace minerwinform {
             this->label188->TabIndex = 82;
             this->label188->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label188->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label188->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label189
             // 
@@ -1518,6 +1607,7 @@ namespace minerwinform {
             this->label189->TabIndex = 81;
             this->label189->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label189->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label189->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label190
             // 
@@ -1532,6 +1622,7 @@ namespace minerwinform {
             this->label190->TabIndex = 80;
             this->label190->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label190->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label190->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label191
             // 
@@ -1546,6 +1637,7 @@ namespace minerwinform {
             this->label191->TabIndex = 99;
             this->label191->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label191->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label191->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label192
             // 
@@ -1560,6 +1652,7 @@ namespace minerwinform {
             this->label192->TabIndex = 98;
             this->label192->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label192->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label192->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label193
             // 
@@ -1574,6 +1667,7 @@ namespace minerwinform {
             this->label193->TabIndex = 97;
             this->label193->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label193->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label193->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label194
             // 
@@ -1588,6 +1682,7 @@ namespace minerwinform {
             this->label194->TabIndex = 96;
             this->label194->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label194->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label194->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label195
             // 
@@ -1602,6 +1697,7 @@ namespace minerwinform {
             this->label195->TabIndex = 95;
             this->label195->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label195->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label195->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label196
             // 
@@ -1616,6 +1712,7 @@ namespace minerwinform {
             this->label196->TabIndex = 94;
             this->label196->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label196->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label196->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label197
             // 
@@ -1630,6 +1727,7 @@ namespace minerwinform {
             this->label197->TabIndex = 93;
             this->label197->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label197->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label197->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label198
             // 
@@ -1644,6 +1742,7 @@ namespace minerwinform {
             this->label198->TabIndex = 92;
             this->label198->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label198->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label198->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label199
             // 
@@ -1658,6 +1757,7 @@ namespace minerwinform {
             this->label199->TabIndex = 91;
             this->label199->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label199->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label199->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label200
             // 
@@ -1672,6 +1772,7 @@ namespace minerwinform {
             this->label200->TabIndex = 90;
             this->label200->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             this->label200->Click += gcnew System::EventHandler(this, &MyForm::Click_field);
+            this->label200->DoubleClick += gcnew System::EventHandler(this, &MyForm::Double_click);
             // 
             // label201
             // 
@@ -2005,7 +2106,10 @@ namespace minerwinform {
                 break;
             }
         }
-        label_field->BackColor = Color::FromArgb(73, 153, 228);
+        if (label_field->BackColor != Color::White)
+        {
+            label_field->BackColor = Color::FromArgb(73, 153, 228);
+        }
     }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
     if (label_field->Text == "f")
@@ -2037,6 +2141,244 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
     else
     {
         label_field->Text = "";
+    }
+}
+private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e) {
+    label_field = safe_cast<Label^>(sender);
+    label_number = (Convert::ToInt32(label_field->Name[5]) - 48) * 100 + (Convert::ToInt32(label_field->Name[6]) - 48) * 10 + (Convert::ToInt32(label_field->Name[7]) - 48);
+    label_color = dynamic_cast<Label^>(this->Controls->Find("label" + label_number, true)[0]);
+    if (label_color->BackColor == Color::White)
+    {
+        count_f = 0;
+        count = Convert::ToInt32(label_field->Text);
+        poz_x = 99;
+        poz_y = 99;
+        for (int i = 0;i < 10;i++)
+        {
+            for (int j = 0;j < 10;j++)
+            {
+                if (arr_label[i, j] == label_number)
+                {
+                    poz_x = i;
+                    poz_y = j;
+                    break;
+                }
+            }
+            if (poz_x != 99 && poz_y != 99)
+            {
+                break;
+            }
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x-1,poz_y+1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y + 1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y + 1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y - 1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y - 1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        try
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y - 1], true)[0]);
+            if (label_color->Text == "f")
+            {
+                count_f++;
+            }
+        }
+        catch (...)
+        {
+        }
+        if (count == count_f)
+        {
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y + 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y + 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y + 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x, poz_y + 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y + 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y + 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y - 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y - 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y - 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x, poz_y - 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+            try
+            {
+                label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y - 1], true)[0]);
+                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                {
+                    label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y - 1]);
+                    label_color->BackColor = Color::White;
+                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                }
+            }
+            catch (...)
+            {
+            }
+        }
+        else
+        {
+            if (count < count_f)
+            {
+                MessageBox::Show(this, "Превышено количество флажков", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            }
+            else
+            {
+                MessageBox::Show(this, "Вблизи этого поля могут быть бомбы", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            }
+        }
+    }
+    else
+    {
+        MessageBox::Show(this, "Необходимо открыть поле", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
     }
 }
 };
