@@ -18,6 +18,13 @@ namespace minerwinform {
         middle,
         hard
     };
+    enum topics
+    {
+        blue,
+        light_green,
+        gentle_purple,
+        deep_purple
+    };
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -164,6 +171,9 @@ namespace minerwinform {
     private: int size_bomb = 10;
     private: int level_game = level::easy;
     private: int max_open_cells = 90;
+    private: int seconds = 0;
+    private: int minutes = 0;
+    private: int topic = topics::blue;
     protected:
     protected:
     private: System::Windows::Forms::Label^ label201;
@@ -178,12 +188,24 @@ namespace minerwinform {
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::PictureBox^ pictureBox3;
     private: System::Windows::Forms::PictureBox^ pictureBox2;
+    private: System::Windows::Forms::Label^ label3;
+    private: System::Windows::Forms::Label^ label4;
+    private: System::Windows::Forms::Label^ label5;
+    private: System::Windows::Forms::Label^ label6;
+    private: System::Windows::Forms::Timer^ timer1;
+    private: System::Windows::Forms::GroupBox^ groupBox2;
+    private: System::Windows::Forms::Button^ button6;
+    private: System::Windows::Forms::Button^ button9;
+    private: System::Windows::Forms::Button^ button8;
+    private: System::Windows::Forms::Button^ button7;
+
+private: System::ComponentModel::IContainer^ components;
 
         private:
 		    /// <summary>
 		    /// Обязательная переменная конструктора.
 		    /// </summary>
-		    System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -192,6 +214,7 @@ namespace minerwinform {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+            this->components = (gcnew System::ComponentModel::Container());
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
             this->label101 = (gcnew System::Windows::Forms::Label());
             this->label102 = (gcnew System::Windows::Forms::Label());
@@ -305,10 +328,21 @@ namespace minerwinform {
             this->button5 = (gcnew System::Windows::Forms::Button());
             this->button4 = (gcnew System::Windows::Forms::Button());
             this->button3 = (gcnew System::Windows::Forms::Button());
+            this->label3 = (gcnew System::Windows::Forms::Label());
+            this->label4 = (gcnew System::Windows::Forms::Label());
+            this->label5 = (gcnew System::Windows::Forms::Label());
+            this->label6 = (gcnew System::Windows::Forms::Label());
+            this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+            this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+            this->button9 = (gcnew System::Windows::Forms::Button());
+            this->button8 = (gcnew System::Windows::Forms::Button());
+            this->button7 = (gcnew System::Windows::Forms::Button());
+            this->button6 = (gcnew System::Windows::Forms::Button());
             this->groupBox1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+            this->groupBox2->SuspendLayout();
             this->SuspendLayout();
             // 
             // label101
@@ -1817,7 +1851,7 @@ namespace minerwinform {
             this->label201->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->label201->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-            this->label201->Location = System::Drawing::Point(691, 9);
+            this->label201->Location = System::Drawing::Point(691, -3);
             this->label201->Name = L"label201";
             this->label201->Size = System::Drawing::Size(238, 91);
             this->label201->TabIndex = 100;
@@ -1832,7 +1866,7 @@ namespace minerwinform {
             this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->button1->ForeColor = System::Drawing::SystemColors::Window;
-            this->button1->Location = System::Drawing::Point(660, 103);
+            this->button1->Location = System::Drawing::Point(660, 145);
             this->button1->Name = L"button1";
             this->button1->Size = System::Drawing::Size(297, 83);
             this->button1->TabIndex = 101;
@@ -1849,7 +1883,7 @@ namespace minerwinform {
             this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->button2->ForeColor = System::Drawing::SystemColors::Window;
-            this->button2->Location = System::Drawing::Point(660, 200);
+            this->button2->Location = System::Drawing::Point(660, 234);
             this->button2->Name = L"button2";
             this->button2->Size = System::Drawing::Size(297, 83);
             this->button2->TabIndex = 102;
@@ -1861,7 +1895,7 @@ namespace minerwinform {
             // 
             this->label1->AutoSize = true;
             this->label1->ForeColor = System::Drawing::SystemColors::Window;
-            this->label1->Location = System::Drawing::Point(704, 286);
+            this->label1->Location = System::Drawing::Point(704, 320);
             this->label1->Name = L"label1";
             this->label1->Size = System::Drawing::Size(137, 16);
             this->label1->TabIndex = 103;
@@ -1871,7 +1905,7 @@ namespace minerwinform {
             // 
             this->label2->AutoSize = true;
             this->label2->ForeColor = System::Drawing::SystemColors::Window;
-            this->label2->Location = System::Drawing::Point(847, 286);
+            this->label2->Location = System::Drawing::Point(847, 320);
             this->label2->Name = L"label2";
             this->label2->Size = System::Drawing::Size(14, 16);
             this->label2->TabIndex = 104;
@@ -1886,7 +1920,7 @@ namespace minerwinform {
             this->groupBox1->Controls->Add(this->button4);
             this->groupBox1->Controls->Add(this->button3);
             this->groupBox1->ForeColor = System::Drawing::SystemColors::Window;
-            this->groupBox1->Location = System::Drawing::Point(660, 321);
+            this->groupBox1->Location = System::Drawing::Point(660, 359);
             this->groupBox1->Name = L"groupBox1";
             this->groupBox1->Size = System::Drawing::Size(297, 225);
             this->groupBox1->TabIndex = 105;
@@ -1976,6 +2010,124 @@ namespace minerwinform {
             this->button3->UseVisualStyleBackColor = false;
             this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
             // 
+            // label3
+            // 
+            this->label3->AutoSize = true;
+            this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(173)), static_cast<System::Int32>(static_cast<System::Byte>(232)),
+                static_cast<System::Int32>(static_cast<System::Byte>(244)));
+            this->label3->Location = System::Drawing::Point(12, 662);
+            this->label3->Name = L"label3";
+            this->label3->Size = System::Drawing::Size(131, 16);
+            this->label3->TabIndex = 106;
+            this->label3->Text = L"developer sergxlove";
+            // 
+            // label4
+            // 
+            this->label4->AutoSize = true;
+            this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->label4->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+            this->label4->Location = System::Drawing::Point(698, 88);
+            this->label4->Name = L"label4";
+            this->label4->Size = System::Drawing::Size(75, 54);
+            this->label4->TabIndex = 107;
+            this->label4->Text = L"00";
+            // 
+            // label5
+            // 
+            this->label5->AutoSize = true;
+            this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->label5->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+            this->label5->Location = System::Drawing::Point(854, 88);
+            this->label5->Name = L"label5";
+            this->label5->Size = System::Drawing::Size(75, 54);
+            this->label5->TabIndex = 108;
+            this->label5->Text = L"00";
+            // 
+            // label6
+            // 
+            this->label6->AutoSize = true;
+            this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->label6->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+            this->label6->Location = System::Drawing::Point(790, 88);
+            this->label6->Name = L"label6";
+            this->label6->Size = System::Drawing::Size(36, 54);
+            this->label6->TabIndex = 109;
+            this->label6->Text = L":";
+            // 
+            // timer1
+            // 
+            this->timer1->Interval = 1000;
+            this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
+            // 
+            // groupBox2
+            // 
+            this->groupBox2->Controls->Add(this->button9);
+            this->groupBox2->Controls->Add(this->button8);
+            this->groupBox2->Controls->Add(this->button7);
+            this->groupBox2->Controls->Add(this->button6);
+            this->groupBox2->ForeColor = System::Drawing::SystemColors::Window;
+            this->groupBox2->Location = System::Drawing::Point(660, 590);
+            this->groupBox2->Name = L"groupBox2";
+            this->groupBox2->Size = System::Drawing::Size(297, 85);
+            this->groupBox2->TabIndex = 110;
+            this->groupBox2->TabStop = false;
+            this->groupBox2->Text = L"Выберите тему :";
+            // 
+            // button9
+            // 
+            this->button9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(157)), static_cast<System::Int32>(static_cast<System::Byte>(78)),
+                static_cast<System::Int32>(static_cast<System::Byte>(237)));
+            this->button9->FlatAppearance->BorderSize = 0;
+            this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button9->Location = System::Drawing::Point(219, 21);
+            this->button9->Name = L"button9";
+            this->button9->Size = System::Drawing::Size(50, 48);
+            this->button9->TabIndex = 3;
+            this->button9->UseVisualStyleBackColor = false;
+            this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
+            // 
+            // button8
+            // 
+            this->button8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(184)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+                static_cast<System::Int32>(static_cast<System::Byte>(255)));
+            this->button8->FlatAppearance->BorderSize = 0;
+            this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button8->Location = System::Drawing::Point(151, 21);
+            this->button8->Name = L"button8";
+            this->button8->Size = System::Drawing::Size(50, 48);
+            this->button8->TabIndex = 2;
+            this->button8->UseVisualStyleBackColor = false;
+            this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+            // 
+            // button7
+            // 
+            this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(65)), static_cast<System::Int32>(static_cast<System::Byte>(145)),
+                static_cast<System::Int32>(static_cast<System::Byte>(108)));
+            this->button7->FlatAppearance->BorderSize = 0;
+            this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button7->Location = System::Drawing::Point(83, 21);
+            this->button7->Name = L"button7";
+            this->button7->Size = System::Drawing::Size(50, 48);
+            this->button7->TabIndex = 1;
+            this->button7->UseVisualStyleBackColor = false;
+            this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
+            // 
+            // button6
+            // 
+            this->button6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
+                static_cast<System::Int32>(static_cast<System::Byte>(246)));
+            this->button6->FlatAppearance->BorderSize = 0;
+            this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button6->Location = System::Drawing::Point(16, 21);
+            this->button6->Name = L"button6";
+            this->button6->Size = System::Drawing::Size(50, 48);
+            this->button6->TabIndex = 0;
+            this->button6->UseVisualStyleBackColor = false;
+            this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+            // 
             // MyForm
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -1983,6 +2135,11 @@ namespace minerwinform {
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
                 static_cast<System::Int32>(static_cast<System::Byte>(246)));
             this->ClientSize = System::Drawing::Size(989, 687);
+            this->Controls->Add(this->groupBox2);
+            this->Controls->Add(this->label6);
+            this->Controls->Add(this->label5);
+            this->Controls->Add(this->label4);
+            this->Controls->Add(this->label3);
             this->Controls->Add(this->groupBox1);
             this->Controls->Add(this->label2);
             this->Controls->Add(this->label1);
@@ -2096,6 +2253,7 @@ namespace minerwinform {
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+            this->groupBox2->ResumeLayout(false);
             this->ResumeLayout(false);
             this->PerformLayout();
 
@@ -2269,6 +2427,7 @@ namespace minerwinform {
             }
         }
         new_game = true;
+        timer1->Start();
     }
     private: System::Void Click_field(System::Object^ sender, System::EventArgs^ e)
     {
@@ -2322,6 +2481,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
             label_field->Text = "*";
             label_field->BackColor = Color::Red;
             MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            timer1->Stop();
+            minutes = 0;
+            seconds = 0;
             MyForm_Load(sender, e);
         }
         else
@@ -2331,6 +2493,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
             if (check_open_cell() == max_open_cells)
             {
                 MessageBox::Show(this, "Вы выйграли", "Victory", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                timer1->Stop();
+                minutes = 0;
+                seconds = 0;
                 MyForm_Load(sender, e);
             }
         }
@@ -2470,6 +2635,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2492,6 +2660,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2514,6 +2685,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2536,6 +2710,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2558,6 +2735,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2580,6 +2760,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2602,6 +2785,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2624,6 +2810,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                         label_color->BackColor = Color::Red;
                         lose = true;
                         MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        timer1->Stop();
+                        minutes = 0;
+                        seconds = 0;
                         MyForm_Load(sender, e);
                     }
                     else
@@ -2637,6 +2826,9 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
             if (check_open_cell() == max_open_cells)
             {
                 MessageBox::Show(this, "Вы выйграли", "Victory", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                timer1->Stop();
+                minutes = 0;
+                seconds = 0;
                 MyForm_Load(sender, e);
             }
         }
@@ -2677,6 +2869,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
     pictureBox2->Visible = false;
     pictureBox3->Visible = false;
     level_game = level::easy;
+    timer1->Stop();
+    minutes = 0;
+    seconds = 0;
     MyForm_Load(sender, e);
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2684,6 +2879,9 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
     pictureBox2->Visible = true;
     pictureBox3->Visible = false;
     level_game = level::middle;
+    timer1->Stop();
+    minutes = 0;
+    seconds = 0;
     MyForm_Load(sender, e);
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2691,7 +2889,92 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
     pictureBox2->Visible = false;
     pictureBox3->Visible = true;
     level_game = level::hard;
+    timer1->Stop();
+    minutes = 0;
+    seconds = 0;
     MyForm_Load(sender, e);
+}
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+    seconds++;
+    if (seconds == 60)
+    {
+        minutes++;
+        seconds = 0;
+        if (minutes < 10)
+        {
+            label4->Text = "0" + Convert::ToString(minutes);
+        }
+        else
+        {
+            label4->Text = Convert::ToString(minutes);
+        }
+    }
+    if (seconds < 10)
+    {
+        label5->Text = "0" + Convert::ToString(seconds);
+    }
+    else
+    {
+        label5->Text = Convert::ToString(seconds);
+    }
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+    button6->FlatAppearance->BorderSize = 3;
+    button7->FlatAppearance->BorderSize = 0;
+    button8->FlatAppearance->BorderSize = 0;
+    button9->FlatAppearance->BorderSize = 0;
+    topic = topics::blue;
+    this->BackColor = Color::FromArgb(0, 170, 246);
+    coloring_field(0, 127, 182);
+    coloring_button(0, 127, 182);
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+    button6->FlatAppearance->BorderSize = 0;
+    button7->FlatAppearance->BorderSize = 3;
+    button8->FlatAppearance->BorderSize = 0;
+    button9->FlatAppearance->BorderSize = 0;
+    topic = topics::light_green;
+    this->BackColor = Color::FromArgb(65, 145, 108);
+    coloring_field(45, 106, 79);
+    coloring_button(45, 106, 79);
+    
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+    button6->FlatAppearance->BorderSize = 0;
+    button7->FlatAppearance->BorderSize = 0;
+    button8->FlatAppearance->BorderSize = 3;
+    button9->FlatAppearance->BorderSize = 0;
+    topic = topics::gentle_purple;
+    this->BackColor = Color::FromArgb(184, 192, 255);
+    coloring_field(159, 134, 192);
+    coloring_button(159, 134, 192);
+}
+private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+    button6->FlatAppearance->BorderSize = 0;
+    button7->FlatAppearance->BorderSize = 0;
+    button8->FlatAppearance->BorderSize = 0;
+    button9->FlatAppearance->BorderSize = 3;
+    topic = topics::deep_purple;
+    this->BackColor = Color::FromArgb(157, 78, 237);
+    coloring_field(60, 9, 108);
+    coloring_button(60, 9, 108);
+}
+private: System::Void coloring_field(int r,int g,int b) {
+    for (int i = 0;i < size;i++)
+    {
+        for (int j = 0;j < size;j++)
+        {
+            label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[i,j], true)[0]);
+            label_color->BackColor = Color::FromArgb(r, g, b);
+        }
+    }
+}
+private: System::Void coloring_button(int r, int g, int b) {
+    button1->BackColor = Color::FromArgb(r, g, b);
+    button2->BackColor = Color::FromArgb(r, g, b);
+    button3->BackColor = Color::FromArgb(r, g, b);
+    button4->BackColor = Color::FromArgb(r, g, b);
+    button5->BackColor = Color::FromArgb(r, g, b);
 }
 };
 }
