@@ -12,6 +12,12 @@ namespace minerwinform {
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
+    enum level
+    {
+        easy,
+        middle,
+        hard
+    };
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -150,11 +156,28 @@ namespace minerwinform {
     private: bool new_game = false;
     private: int size = 0;
     private: int count_f = 0;
+    private: int bomb = 0;
+    private: bool lose = false;
+    private: int total_count_f = 10;
+    private: int open_cell = 0;
+    private: Label^ label_check;
+    private: int size_bomb = 10;
+    private: int level_game = level::easy;
+    private: int max_open_cells = 90;
     protected:
     protected:
     private: System::Windows::Forms::Label^ label201;
     private: System::Windows::Forms::Button^ button1;
     private: System::Windows::Forms::Button^ button2;
+    private: System::Windows::Forms::Label^ label1;
+    private: System::Windows::Forms::Label^ label2;
+    private: System::Windows::Forms::GroupBox^ groupBox1;
+    private: System::Windows::Forms::Button^ button5;
+    private: System::Windows::Forms::Button^ button4;
+    private: System::Windows::Forms::Button^ button3;
+    private: System::Windows::Forms::PictureBox^ pictureBox1;
+    private: System::Windows::Forms::PictureBox^ pictureBox3;
+    private: System::Windows::Forms::PictureBox^ pictureBox2;
 
         private:
 		    /// <summary>
@@ -169,6 +192,7 @@ namespace minerwinform {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
             this->label101 = (gcnew System::Windows::Forms::Label());
             this->label102 = (gcnew System::Windows::Forms::Label());
             this->label103 = (gcnew System::Windows::Forms::Label());
@@ -272,6 +296,19 @@ namespace minerwinform {
             this->label201 = (gcnew System::Windows::Forms::Label());
             this->button1 = (gcnew System::Windows::Forms::Button());
             this->button2 = (gcnew System::Windows::Forms::Button());
+            this->label1 = (gcnew System::Windows::Forms::Label());
+            this->label2 = (gcnew System::Windows::Forms::Label());
+            this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+            this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+            this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+            this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+            this->button5 = (gcnew System::Windows::Forms::Button());
+            this->button4 = (gcnew System::Windows::Forms::Button());
+            this->button3 = (gcnew System::Windows::Forms::Button());
+            this->groupBox1->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
             // 
             // label101
@@ -1820,6 +1857,125 @@ namespace minerwinform {
             this->button2->UseVisualStyleBackColor = false;
             this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
             // 
+            // label1
+            // 
+            this->label1->AutoSize = true;
+            this->label1->ForeColor = System::Drawing::SystemColors::Window;
+            this->label1->Location = System::Drawing::Point(704, 286);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(137, 16);
+            this->label1->TabIndex = 103;
+            this->label1->Text = L"Осталось флажков :";
+            // 
+            // label2
+            // 
+            this->label2->AutoSize = true;
+            this->label2->ForeColor = System::Drawing::SystemColors::Window;
+            this->label2->Location = System::Drawing::Point(847, 286);
+            this->label2->Name = L"label2";
+            this->label2->Size = System::Drawing::Size(14, 16);
+            this->label2->TabIndex = 104;
+            this->label2->Text = L"0";
+            // 
+            // groupBox1
+            // 
+            this->groupBox1->Controls->Add(this->pictureBox3);
+            this->groupBox1->Controls->Add(this->pictureBox2);
+            this->groupBox1->Controls->Add(this->pictureBox1);
+            this->groupBox1->Controls->Add(this->button5);
+            this->groupBox1->Controls->Add(this->button4);
+            this->groupBox1->Controls->Add(this->button3);
+            this->groupBox1->ForeColor = System::Drawing::SystemColors::Window;
+            this->groupBox1->Location = System::Drawing::Point(660, 321);
+            this->groupBox1->Name = L"groupBox1";
+            this->groupBox1->Size = System::Drawing::Size(297, 225);
+            this->groupBox1->TabIndex = 105;
+            this->groupBox1->TabStop = false;
+            this->groupBox1->Text = L"Начать новую игру :";
+            // 
+            // pictureBox3
+            // 
+            this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+            this->pictureBox3->Location = System::Drawing::Point(234, 154);
+            this->pictureBox3->Name = L"pictureBox3";
+            this->pictureBox3->Size = System::Drawing::Size(57, 57);
+            this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+            this->pictureBox3->TabIndex = 111;
+            this->pictureBox3->TabStop = false;
+            this->pictureBox3->Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+            this->pictureBox2->Location = System::Drawing::Point(234, 89);
+            this->pictureBox2->Name = L"pictureBox2";
+            this->pictureBox2->Size = System::Drawing::Size(57, 57);
+            this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+            this->pictureBox2->TabIndex = 110;
+            this->pictureBox2->TabStop = false;
+            this->pictureBox2->Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+            this->pictureBox1->Location = System::Drawing::Point(234, 24);
+            this->pictureBox1->Name = L"pictureBox1";
+            this->pictureBox1->Size = System::Drawing::Size(57, 57);
+            this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+            this->pictureBox1->TabIndex = 109;
+            this->pictureBox1->TabStop = false;
+            // 
+            // button5
+            // 
+            this->button5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(127)),
+                static_cast<System::Int32>(static_cast<System::Byte>(182)));
+            this->button5->FlatAppearance->BorderSize = 0;
+            this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->button5->ForeColor = System::Drawing::SystemColors::Window;
+            this->button5->Location = System::Drawing::Point(6, 154);
+            this->button5->Name = L"button5";
+            this->button5->Size = System::Drawing::Size(213, 54);
+            this->button5->TabIndex = 108;
+            this->button5->Text = L"Сложный";
+            this->button5->UseVisualStyleBackColor = false;
+            this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+            // 
+            // button4
+            // 
+            this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(127)),
+                static_cast<System::Int32>(static_cast<System::Byte>(182)));
+            this->button4->FlatAppearance->BorderSize = 0;
+            this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->button4->ForeColor = System::Drawing::SystemColors::Window;
+            this->button4->Location = System::Drawing::Point(6, 89);
+            this->button4->Name = L"button4";
+            this->button4->Size = System::Drawing::Size(213, 54);
+            this->button4->TabIndex = 107;
+            this->button4->Text = L"Средний";
+            this->button4->UseVisualStyleBackColor = false;
+            this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+            // 
+            // button3
+            // 
+            this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(127)),
+                static_cast<System::Int32>(static_cast<System::Byte>(182)));
+            this->button3->FlatAppearance->BorderSize = 0;
+            this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->button3->ForeColor = System::Drawing::SystemColors::Window;
+            this->button3->Location = System::Drawing::Point(6, 24);
+            this->button3->Name = L"button3";
+            this->button3->Size = System::Drawing::Size(213, 54);
+            this->button3->TabIndex = 106;
+            this->button3->Text = L"Лёгкий";
+            this->button3->UseVisualStyleBackColor = false;
+            this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+            // 
             // MyForm
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -1827,6 +1983,9 @@ namespace minerwinform {
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
                 static_cast<System::Int32>(static_cast<System::Byte>(246)));
             this->ClientSize = System::Drawing::Size(989, 687);
+            this->Controls->Add(this->groupBox1);
+            this->Controls->Add(this->label2);
+            this->Controls->Add(this->label1);
             this->Controls->Add(this->button2);
             this->Controls->Add(this->button1);
             this->Controls->Add(this->label201);
@@ -1933,6 +2092,10 @@ namespace minerwinform {
             this->Name = L"MyForm";
             this->Text = L"MyForm";
             this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+            this->groupBox1->ResumeLayout(false);
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             this->ResumeLayout(false);
             this->PerformLayout();
 
@@ -1943,7 +2106,8 @@ namespace minerwinform {
         if (new_game == false)
         {
             size = 10;
-            arr_bomb = gcnew array<int, 1>(size);
+            size_bomb = 10;
+            bomb = 0;
             arr_poz_bomb = gcnew array<bool, 2>(size, size);
             arr_number = gcnew array<int, 2>(size, size);
             arr_poz_bomb_speed = gcnew array<bool, 2>(size + 2, size + 2);
@@ -1961,6 +2125,26 @@ namespace minerwinform {
                 { 110,111,121,131,141,151,161,171,181,191 },
             };
         }
+        if (level_game == level::easy)
+        {
+            size_bomb = 10;
+        }
+        if (level_game == level::middle)
+        {
+            size_bomb = 15;
+        }
+        if (level_game == level::hard)
+        {
+            size_bomb = 20;
+        }
+        arr_bomb = gcnew array<int, 1>(size_bomb);
+        for (int i = 0;i < size_bomb;i++)
+        {
+            arr_bomb[i] = 0;
+        }
+        total_count_f = size_bomb;
+        max_open_cells = 100 - size_bomb;
+        label2->Text = Convert::ToString(total_count_f);
         for (int i = 0;i < size;i++)
         {
             for (int j = 0;j < size;j++)
@@ -1968,11 +2152,25 @@ namespace minerwinform {
                 arr_poz_bomb[i, j] = false;
             }
         }
-        for (int i = 0;i < size;i++)
+        bool check_bomb = false;
+        for (int i = 0;i < size_bomb;)
         {
-            arr_bomb[i] = random->Next(101,201);
+            check_bomb = false;
+            bomb = random->Next(101, 201);
+            for (int j = 0;j < size_bomb;j++)
+            {
+                if (arr_bomb[j] == bomb)
+                {
+                    check_bomb = true;
+                }
+            }
+            if (check_bomb == false)
+            {
+                arr_bomb[i] = bomb;
+                i++;
+            }
         }
-        for (int i = 0;i < size;i++)
+        for (int i = 0;i < size_bomb;i++)
         {
             have_bomb = false;
             for (int j = 0;j < size;j++)
@@ -2130,6 +2328,11 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
         {
             label_field->Text = Convert::ToString(arr_number[poz_x, poz_y]);
             label_field->ForeColor = Color::FromArgb(0, 170, 246);
+            if (check_open_cell() == max_open_cells)
+            {
+                MessageBox::Show(this, "Вы выйграли", "Victory", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                MyForm_Load(sender, e);
+            }
         }
     }
 }
@@ -2137,10 +2340,21 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
     if (label_field->Text != "f")
     {
         label_field->Text = "f";
+        label_field->ForeColor = Color::Black;
+        total_count_f--;
     }
     else
     {
         label_field->Text = "";
+        total_count_f++;
+    }
+    if (total_count_f < 0)
+    {
+        label2->Text = "Лимит превышен";
+    }
+    else
+    {
+        label2->Text = Convert::ToString(total_count_f);
     }
 }
 private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e) {
@@ -2177,9 +2391,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y + 1], true)[0]);
@@ -2188,9 +2400,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y + 1], true)[0]);
@@ -2199,9 +2409,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y], true)[0]);
@@ -2210,9 +2418,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y], true)[0]);
@@ -2221,9 +2427,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y - 1], true)[0]);
@@ -2232,9 +2436,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y - 1], true)[0]);
@@ -2243,9 +2445,7 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         try
         {
             label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y - 1], true)[0]);
@@ -2254,114 +2454,190 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                 count_f++;
             }
         }
-        catch (...)
-        {
-        }
+        catch (...) {}
         if (count == count_f)
         {
+            lose = false;
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y + 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose!=true&&label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y + 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y + 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x, poz_y + 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y + 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y + 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x - 1, poz_y - 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x - 1, poz_y - 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x, poz_y - 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x, poz_y - 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
-            {
-            }
+            catch (...) {}
             try
             {
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[poz_x + 1, poz_y - 1], true)[0]);
-                if (label_color->Text != "f" && label_color->BackColor != Color::White)
+                if (lose != true && label_color->Text != "f" && label_color->BackColor != Color::White)
                 {
                     label_color->Text = Convert::ToString(arr_number[poz_x + 1, poz_y - 1]);
-                    label_color->BackColor = Color::White;
-                    label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    if (label_color->Text == "9")
+                    {
+                        label_color->Text = "*";
+                        label_color->BackColor = Color::Red;
+                        lose = true;
+                        MessageBox::Show(this, "Вы проиграли", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        MyForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        label_color->BackColor = Color::White;
+                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                    }
                 }
             }
-            catch (...)
+            catch (...) {}
+            if (check_open_cell() == max_open_cells)
             {
+                MessageBox::Show(this, "Вы выйграли", "Victory", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                MyForm_Load(sender, e);
             }
         }
         else
@@ -2381,5 +2657,42 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
         MessageBox::Show(this, "Необходимо открыть поле", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
     }
 }
+private: int check_open_cell() {
+    int cells = 0;
+    for (int i = 0;i < size;i++)
+    {
+        for (int j = 0;j < size;j++)
+        {
+            label_check = dynamic_cast<Label^>(this->Controls->Find("label" + arr_label[i,j], true)[0]);
+            if (label_check->BackColor == Color::White)
+            {
+                cells++;
+            }
+        }
+    }
+    return cells;
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+    pictureBox1->Visible = true;
+    pictureBox2->Visible = false;
+    pictureBox3->Visible = false;
+    level_game = level::easy;
+    MyForm_Load(sender, e);
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+    pictureBox1->Visible = false;
+    pictureBox2->Visible = true;
+    pictureBox3->Visible = false;
+    level_game = level::middle;
+    MyForm_Load(sender, e);
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+    pictureBox1->Visible = false;
+    pictureBox2->Visible = false;
+    pictureBox3->Visible = true;
+    level_game = level::hard;
+    MyForm_Load(sender, e);
+}
 };
 }
+
