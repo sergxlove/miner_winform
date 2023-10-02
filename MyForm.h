@@ -174,6 +174,9 @@ namespace minerwinform {
     private: int seconds = 0;
     private: int minutes = 0;
     private: int topic = topics::blue;
+    private: int color_r = 0;
+    private: int color_g = 127;
+    private: int color_b = 182;
     protected:
     protected:
     private: System::Windows::Forms::Label^ label201;
@@ -2416,13 +2419,37 @@ private: System::ComponentModel::IContainer^ components;
                 }
             }
         }
+        if (topic == topics::blue)
+        {
+            color_r = 0;
+            color_g = 127;
+            color_b = 182;
+        }
+        if (topic == topics::light_green)
+        {
+            color_r = 45;
+            color_g = 106;
+            color_b = 79;
+        }
+        if (topic == topics::gentle_purple)
+        {
+            color_r = 159;
+            color_g = 132;
+            color_b = 192;
+        }
+        if (topic == topics::deep_purple)
+        {
+            color_r = 60;
+            color_g = 9;
+            color_b = 108;
+        }
         for (int i = 0;i < 10;i++)
         {
             for (int j = 0;j < 10;j++)
             {
                 index = arr_label[i, j];
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + index, true)[0]);
-                label_color->BackColor = Color::FromArgb(0, 127, 182);
+                label_color->BackColor = Color::FromArgb(color_r, color_g, color_b);
                 label_color->Text = "";
             }
         }
@@ -2443,7 +2470,7 @@ private: System::ComponentModel::IContainer^ components;
                 label_color = dynamic_cast<Label^>(this->Controls->Find("label" + index, true)[0]);
                 if (label_color->BackColor != Color::White)
                 {
-                    label_color->BackColor = Color::FromArgb(0, 127, 182);
+                    label_color->BackColor = Color::FromArgb(color_r, color_g, color_b);
                 }
             }
         }
@@ -2465,7 +2492,22 @@ private: System::ComponentModel::IContainer^ components;
         }
         if (label_field->BackColor != Color::White)
         {
-            label_field->BackColor = Color::FromArgb(73, 153, 228);
+            if (topic == topics::blue)
+            {
+                label_field->BackColor = Color::FromArgb(73, 153, 228);
+            }
+            if (topic == topics::light_green)
+            {
+                label_field->BackColor = Color::FromArgb(183, 228, 199);
+            }
+            if (topic == topics::gentle_purple)
+            {
+                label_field->BackColor = Color::FromArgb(184, 184, 255);
+            }
+            if (topic == topics::deep_purple)
+            {
+                label_field->BackColor = Color::FromArgb(142, 125, 190);
+            }
         }
     }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2927,6 +2969,9 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
     this->BackColor = Color::FromArgb(0, 170, 246);
     coloring_field(0, 127, 182);
     coloring_button(0, 127, 182);
+    color_r = 0;
+    color_g = 127;
+    color_b = 182;
 }
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
     button6->FlatAppearance->BorderSize = 0;
@@ -2937,6 +2982,9 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
     this->BackColor = Color::FromArgb(65, 145, 108);
     coloring_field(45, 106, 79);
     coloring_button(45, 106, 79);
+    color_r = 45;
+    color_g = 106;
+    color_b = 79;
     
 }
 private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2948,6 +2996,9 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
     this->BackColor = Color::FromArgb(184, 192, 255);
     coloring_field(159, 134, 192);
     coloring_button(159, 134, 192);
+    color_r = 159;
+    color_g = 132;
+    color_b = 192;
 }
 private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
     button6->FlatAppearance->BorderSize = 0;
@@ -2958,6 +3009,9 @@ private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e
     this->BackColor = Color::FromArgb(157, 78, 237);
     coloring_field(60, 9, 108);
     coloring_button(60, 9, 108);
+    color_r = 60;
+    color_g = 9;
+    color_b = 108;
 }
 private: System::Void coloring_field(int r,int g,int b) {
     for (int i = 0;i < size;i++)
