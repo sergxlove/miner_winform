@@ -2249,8 +2249,9 @@ private: System::ComponentModel::IContainer^ components;
             this->Controls->Add(this->label103);
             this->Controls->Add(this->label102);
             this->Controls->Add(this->label101);
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->Name = L"MyForm";
-            this->Text = L"MyForm";
+            this->Text = L"Miner";
             this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
             this->groupBox1->ResumeLayout(false);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -2531,7 +2532,22 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
         else
         {
             label_field->Text = Convert::ToString(arr_number[poz_x, poz_y]);
-            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+            if (arr_number[poz_x, poz_y] == 0)
+            {
+                label_field->ForeColor = Color::FromArgb(0, 170, 246);
+            }
+            if (arr_number[poz_x, poz_y] == 1)
+            {
+                label_field->ForeColor = Color::DarkBlue;
+            }
+            if (arr_number[poz_x, poz_y] == 2)
+            {
+                label_field->ForeColor = Color::Green;
+            }
+            if (arr_number[poz_x, poz_y] >= 3 && arr_number[poz_x, poz_y] <= 8)
+            {
+                label_field->ForeColor = Color::Red;
+            }
             if (check_open_cell() == max_open_cells)
             {
                 MessageBox::Show(this, "Вы выйграли", "Victory", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -2685,7 +2701,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2710,7 +2741,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2735,7 +2781,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2760,7 +2821,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2785,7 +2861,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2810,7 +2901,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2835,7 +2941,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -2860,7 +2981,22 @@ private: System::Void Double_click(System::Object^ sender, System::EventArgs^ e)
                     else
                     {
                         label_color->BackColor = Color::White;
-                        label_color->ForeColor = Color::FromArgb(0, 170, 246);
+                        if (label_color->Text == "0")
+                        {
+                            label_field->ForeColor = Color::FromArgb(0, 170, 246);
+                        }
+                        if (label_color->Text == "1")
+                        {
+                            label_field->ForeColor = Color::DarkBlue;
+                        }
+                        if (label_color->Text == "2")
+                        {
+                            label_field->ForeColor = Color::Green;
+                        }
+                        if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+                        {
+                            label_color->ForeColor = Color::Red;
+                        }
                     }
                 }
             }
@@ -3029,6 +3165,24 @@ private: System::Void coloring_button(int r, int g, int b) {
     button3->BackColor = Color::FromArgb(r, g, b);
     button4->BackColor = Color::FromArgb(r, g, b);
     button5->BackColor = Color::FromArgb(r, g, b);
+}
+private: System::Void coloring_text_label() {
+    if (label_color->Text == "0")
+    {
+        label_field->ForeColor = Color::FromArgb(0, 170, 246);
+    }
+    if (label_color->Text == "1")
+    {
+        label_field->ForeColor = Color::DarkBlue;
+    }
+    if (label_color->Text == "2")
+    {
+        label_field->ForeColor = Color::Green;
+    }
+    if (label_color->Text != "0" && label_color->Text != "1" && label_color->Text != "2")
+    {
+        label_color->ForeColor = Color::Red;
+    }
 }
 };
 }
