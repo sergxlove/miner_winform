@@ -2273,7 +2273,7 @@ private: System::ComponentModel::IContainer^ components;
             arr_poz_bomb = gcnew array<bool, 2>(size, size);
             arr_number = gcnew array<int, 2>(size, size);
             arr_poz_bomb_speed = gcnew array<bool, 2>(size + 2, size + 2);
-            arr_label = gcnew array<int, 2>(size, size)
+            arr_label = gcnew array<int, 2>(size, size) 
             {
                 { 101,120,130,140,150,160,170,180,190,200 },
                 { 102,119,129,139,149,159,169,179,189,199 },
